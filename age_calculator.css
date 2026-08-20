@@ -1,0 +1,125 @@
+
+
+:root {
+  --ac-bg: #f7f8fa;
+  --ac-bg-desktop: #eef1f5;
+  --ac-surface: #ffffff;
+  --ac-text: #111418;
+  --ac-label: #6a7280;
+  --ac-placeholder: #a9b0ba;
+  --ac-border: #e2e6eb;
+  --ac-primary: #3478f6;
+  --ac-primary-hover: #2a67dd;
+  --ac-primary-active: #2458c2;
+  --ac-radius: 0.75rem;
+}
+
+/* ---- Page ------------------------------------------------------------- */
+
+body {
+  min-height: 100dvh;
+  padding: clamp(2.5rem, 9vh, 5rem) 0.25rem 2.5rem;
+  background-color: var(--ac-bg);
+  color: var(--ac-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-title {
+  margin-bottom: 2.25rem;
+  font-size: clamp(2rem, 4vw + 1rem, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Form fields ------------------------------------------------------ */
+
+.form-label {
+  margin-bottom: 0.5rem;
+  color: var(--ac-label);
+  font-size: 1.0625rem;
+  font-weight: 400;
+}
+
+.form-control {
+  padding: 0.875rem 1rem;
+  background-color: var(--ac-surface);
+  border: 1px solid var(--ac-border);
+  border-radius: var(--ac-radius);
+  color: var(--ac-text);
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control::placeholder {
+  color: var(--ac-placeholder);
+  font-weight: 400;
+}
+
+.form-control:focus {
+  border-color: var(--ac-primary);
+  box-shadow: 0 0 0 0.25rem rgba(52, 120, 246, 0.15);
+}
+
+.form-control[readonly] {
+  background-color: var(--ac-surface);
+}
+
+.age-output {
+  font-weight: 700;
+}
+
+/* Placeholder shown until JS writes a result */
+.age-output:empty::before {
+  content: "Your age will appear here";
+  color: var(--ac-placeholder);
+  font-weight: 400;
+}
+
+.invalid-feedback {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* ---- Primary action ---------------------------------------------------- */
+
+.btn-calculate {
+  --bs-btn-bg: var(--ac-primary);
+  --bs-btn-border-color: var(--ac-primary);
+  --bs-btn-hover-bg: var(--ac-primary-hover);
+  --bs-btn-hover-border-color: var(--ac-primary-hover);
+  --bs-btn-active-bg: var(--ac-primary-active);
+  --bs-btn-active-border-color: var(--ac-primary-active);
+  --bs-btn-focus-shadow-rgb: 52, 120, 246;
+
+  margin-top: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: var(--ac-radius);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* ---- Larger screens: float the form on a card -------------------------- */
+
+@media (min-width: 768px) {
+  body {
+    background-color: var(--ac-bg-desktop);
+  }
+
+  .calculator-card {
+    padding: 3rem 2.5rem 2.75rem;
+    background-color: var(--ac-surface);
+    border: 1px solid var(--ac-border);
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 40px rgba(17, 20, 24, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control,
+  .btn-calculate {
+    transition: none;
+  }
+}
