@@ -100,7 +100,7 @@ function calculateAge(birthDate, today) {
 }
 
 function formatAge(age) {
-  return age.years + " years, " + age.months + " months and " + age.days + " days";
+  return age.years + " years, " + age.months + " months, " + age.days + " days";
 }
 
 function formatDate(date) {
